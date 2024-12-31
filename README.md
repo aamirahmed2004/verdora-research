@@ -6,7 +6,7 @@ The theme of the hackathon was sustainability, and our app was intended to be a 
 
 Due to time constraints, as well as the fact that this was just a proof-of-concept, I decided to reuse pre-trained computer vision models from Huggingface since several models already existed for sustainability-related tasks, in order to save compute on training the models, and not have to worry about picking the right architectures and hyperparameters.
 
-Using pre-trained models is also a sustainable development practice in itself. Furthermore, even combining the output of all 7-8 models can be done on a CPU instance, which meant that our product could eventually also be able to perform inference locally on the users machines.
+Using pre-trained models is also a sustainable development practice in itself. Furthermore, even combining the output of all 7-8 models can be done on a CPU instance, which meant that our product could eventually also be able to perform inference locally on the users' machines.
 
 ## Files in the Repo
 
@@ -28,10 +28,13 @@ Object detection:
 
 Classification:
 
+These models were taken from [Hugging Face](!https://huggingface.co/pyesonekyaw/recycletree_materials).
+
 - 1 general classification model with 5 classes: **paper, plastic, glass, metal, others**. This was used to verify the output of the object detection labels, by cropping the input image using bounding boxes and checking if the classifier agrees. If the labels output by both models is the same, we go to the next step.
 
 - 5 specific models from specifically to classify subcategories of waste depending on the label output by the above model.
-For example: the plastic classification model had the following (sub)classes:
-    - CD Disk, Straw, Plastic Bag, Clothes Hanger, Plastic Container or Bottle, Disposable Cutlery, Plastic Packaging, Plastic Packaging With Foil, Styrofoam
 
-We also had **specific models for paper, plastic, glass, metal, others** where others was mostly E-waste. From the output of these models, as well as the helpful information provided in the code at: https://huggingface.co/pyesonekyaw/recycletree_materials, we output specific recycling suggestions.
+For example: the plastic classification model had the following (sub)classes:
+  - CD Disk, Straw, Plastic Bag, Clothes Hanger, Plastic Container or Bottle, Disposable Cutlery, Plastic Packaging, Plastic Packaging With Foil, Styrofoam
+
+We also had **specific models for paper, plastic, glass, metal, others** where others was mostly E-waste. From the output of these models, as well as the helpful information provided in the GitHub repo which was mentioned on the HuggingFace page, we output specific recycling suggestions depending on the material.
