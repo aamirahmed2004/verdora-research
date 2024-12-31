@@ -28,7 +28,7 @@ Object detection:
 
 Classification:
 
-These models were taken from [Hugging Face](!https://huggingface.co/pyesonekyaw/recycletree_materials).
+These models were taken from https://huggingface.co/pyesonekyaw/recycletree_materials.
 
 - 1 general classification model with 5 classes: **paper, plastic, glass, metal, others**. This was used to verify the output of the object detection labels, by cropping the input image using bounding boxes and checking if the classifier agrees. If the labels output by both models is the same, we go to the next step.
 
